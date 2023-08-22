@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "9f41b79f-da73-49b0-8286-a2d8ca2db9a3",
+		"name": "Practical Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "RowId",
+							"value": "0",
+							"description": "Record Id",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://68.178.166.216/api/API/BillToPartyMaster/GetData",
+					"protocol": "http",
+					"host": [
+						"68",
+						"178",
+						"166",
+						"216"
+					],
+					"path": [
+						"api",
+						"API",
+						"BillToPartyMaster",
+						"GetData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "RowId",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "ActionId",
+							"value": "0",
+							"description": "When Delete ActionId - 1",
+							"type": "default"
+						},
+						{
+							"key": "Code",
+							"value": "Yew",
+							"type": "default"
+						},
+						{
+							"key": "Name",
+							"value": "Yew Technologies",
+							"type": "default"
+						},
+						{
+							"key": "Address",
+							"value": "Nanpura, Surat",
+							"type": "default"
+						},
+						{
+							"key": "Country",
+							"value": "India",
+							"type": "default"
+						},
+						{
+							"key": "State",
+							"value": "Gujarat",
+							"type": "default"
+						},
+						{
+							"key": "City",
+							"value": "Surat",
+							"type": "default"
+						},
+						{
+							"key": "Mobile",
+							"value": "7894561232",
+							"type": "default"
+						},
+						{
+							"key": "Email",
+							"value": "Yewtec@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "GSTNo",
+							"value": "7485FDDF8588F",
+							"type": "default"
+						},
+						{
+							"key": "PANNo",
+							"value": "ASDFD4455G",
+							"type": "default"
+						},
+						{
+							"key": "PinCode",
+							"value": "356214",
+							"type": "default"
+						},
+						{
+							"key": "Latitude",
+							"value": "23.123556",
+							"type": "default"
+						},
+						{
+							"key": "Longitude",
+							"value": "78.123456",
+							"type": "default"
+						},
+						{
+							"key": "ContactPersonDetails",
+							"value": "[{RowId:null, PersonName: 'Piyush Jariwala', PersonMobile: '7896541235', PersonEmail: 'Piyushj@gmail.com', Department: 'IT', Designation: 'CEO'},\n{RowId:null, PersonName: 'Demo', PersonMobile: '1234567890', PersonEmail: 'demo@gmail.com', Department: 'IT', Designation: 'CEO'}]",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://68.178.166.216/api/API/BillToPartyMaster/SaveData",
+					"protocol": "http",
+					"host": [
+						"68",
+						"178",
+						"166",
+						"216"
+					],
+					"path": [
+						"api",
+						"",
+						"API",
+						"BillToPartyMaster",
+						"SaveData"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

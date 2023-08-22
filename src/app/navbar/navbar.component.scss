@@ -1,0 +1,35 @@
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Styles for the resize handle */
+.mat-column-resize-handle {
+    cursor: col-resize;
+    width: 10px; /* Customize width */
+    background-color: #ddd; /* Customize background color */
+    border-left: 1px solid #ccc; /* Add a border to the left */
+  }
+  
+/* Add this to your component's CSS file or global styles */
+
+.vr {
+    width: 1px;
+    background-color: black;
+    height: calc(100% - 20px);
+    margin: 0 10px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .border-grid-tile {
+    border: 1px solid #ccc; /* Add your preferred border styles */
+}
+  
+
+
+  
+  

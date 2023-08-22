@@ -1,0 +1,404 @@
+<nav class="navbar border" style="background-color: #F2F4F4; margin-bottom: 40px; margin-top: 10px;">
+    <div class="container-fluid">
+        <a class="navbar-brand">Add / Update Data </a>
+        <form class="d-flex" role="search">
+            <div class="input-group rounded-0">
+
+                <div class="input-group-append btn-outline-secondary">
+                    <button class="btn border me-2 " type="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="btn border me-2" type="button">
+                        <i class="fas fa-list fa-lg"></i>
+                    </button>
+                    <button class="btn border me-2" type="button">
+                        <i class="fas fa-times fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row">
+    <div class="col-md-1"></div> <!-- Empty space on the left -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="gstnos" class="col-form-label me-2">GST NO :</label>
+                <input type="string"
+                    id="gstnos"
+                    placeholder="Enter GST No"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': gstnos.valid && gstnos.dirty, 'is-invalid': gstnos.invalid && gstnos.dirty}"
+                    #gstnos="ngModel"
+                    minlength="15"
+                    [(ngModel)]="gstNumber">
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="pannos" class="col-form-label me-2">PAN NO :</label>
+                <input type="string"
+                    id="pannos"
+                    placeholder="Enter PAN No"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': pannos.valid && pannos.dirty, 'is-invalid': pannos.invalid && pannos.dirty}"
+                    #pannos="ngModel"
+                    minlength="10"
+                    [(ngModel)]="panNumber">
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="code" class="col-form-label me-4">Code :</label>
+                <input type="text"
+                    id="code"
+                    placeholder="Enter Code"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': code.valid && code.dirty, 'is-invalid': code.invalid && code.dirty}"
+                    #code="ngModel"
+                    required
+                    [(ngModel)]="codeValue">
+                <div *ngIf="name.invalid && name.dirty" class="invalid-feedback">
+                    Code is required.
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid text-center mt-3">
+    <div class="row"> <!-- Add "mt-3" for margin-top -->
+
+        <div class="col-md-1"></div> <!-- Empty space on the left -->
+
+        <!-- 1st column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="name" class="col-form-label me-4">Name :</label>
+                <input type="string"
+                    id="name"
+                    placeholder="Enter Name"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': name.valid && name.dirty, 'is-invalid': name.invalid && name.dirty}"
+                    #name="ngModel"
+                    required
+                    [(ngModel)]="nameValue">
+                <div *ngIf="name.invalid && name.dirty" class="invalid-feedback">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+        <!-- 2nd column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="address" class="col-form-label me-2">Address :</label>
+                <textarea id="address"
+                        placeholder="Enter Address"
+                        class="form-control input-small"
+                        [ngClass]="{'is-valid': address.valid && address.dirty, 'is-invalid': address.invalid && address.dirty}"
+                        #address="ngModel"
+                        [(ngModel)]="addressValue"></textarea>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="pincode" class="col-form-label me-2">Pincode :</label>
+                <input type="text"
+                    id="pincode"
+                    placeholder="Enter Pincode"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': pincode.valid && pincode.dirty, 'is-invalid': pincode.invalid && pincode.dirty}"
+                    #pincode="ngModel"
+                    [(ngModel)]="pincodeValue">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid text-center mt-3">
+    <div class="row">
+
+        <div class="col-md-1"></div> <!-- Empty space on the left -->
+
+        <!-- 4th column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="country" class="col-form-label me-2">Country :</label>
+                <select id="country"
+                        class="form-control input-small"
+                        [(ngModel)]="selectedCountry"
+                        (ngModelChange)="onCountryChange()">
+                    <option value="">Select Country</option>
+                    <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 5th column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="state" class="col-form-label me-4">State :</label>
+                <select id="state"
+                        class="form-control input-small"
+                        [(ngModel)]="selectedState"
+                        (ngModelChange)="onStateChange()">
+                    <option value="">Select State</option>
+                    <option *ngFor="let state of stateList" [value]="state">{{ state }}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 6th column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="city" class="col-form-label me-4">City :</label>
+                <select id="city"
+                        class="form-control input-small"
+                        [(ngModel)]="selectedCity">
+                    <option value="">Select City</option>
+                    <option *ngFor="let city of cityList" [value]="city">{{ city }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-center mt-3">
+    <div class="row"> <!-- Add "mt-3" for margin-top -->
+
+        <div class="col-md-1"></div> <!-- Empty space on the left -->
+        
+        <div class="col"></div> <!-- Empty space on the left -->
+
+        <!-- 4th column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="mobile" class="col-form-label me-1">Mobile No :</label>
+                <input type="text"
+                    id="mobile"
+                    placeholder="Enter Mobile No"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': mobile.valid && mobile.dirty, 'is-invalid': mobile.invalid && mobile.dirty}"
+                    #mobile="ngModel"
+                    [(ngModel)]="mobileValue">
+            </div>
+        </div>
+
+        <!-- 5th column -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="email" class="col-form-label me-4">Email :</label>
+                <input type="email"
+                    id="email"
+                    placeholder="Enter Email"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': email.valid && email.dirty, 'is-invalid': email.invalid && email.dirty}"
+                    #email="ngModel"
+                    [(ngModel)]="emailValue">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid text-center mt-3">
+    <div class="row">
+    <div class="col-md-1"></div> <!-- Empty space on the left -->
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="latitude" class="col-form-label me-2">Latitude :</label>
+                <input type="string"
+                    id="latitude"
+                    placeholder="Enter Latitude"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': latitude.valid && latitude.dirty, 'is-invalid': latitude.invalid && latitude.dirty}"
+                    #latitude="ngModel"
+                    [(ngModel)]="latitudeValue">
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="longitude" class="col-form-label me-2">Longitude :</label>
+                <input type="string"
+                    id="longitude"
+                    placeholder="Enter Longitude"
+                    class="form-control input-small"
+                    [ngClass]="{'is-valid': longitude.valid && longitude.dirty, 'is-invalid': longitude.invalid && longitude.dirty}"
+                    #longitude="ngModel"
+                    [(ngModel)]="longitudeValue">
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex align-items-center">
+                <label for="currency" class="col-form-label me-2">Currency :</label>
+                <select id="currency"
+                        class="form-control input-small"
+                        [(ngModel)]="selectedCurrency">
+                    <option value="">Select Currency</option>
+                    <option *ngFor="let currency of currencyList" [value]="currency">{{ currency }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row g-3  mt-3"> <!-- Add "mt-3" for margin-top -->
+
+    <div class="col-md-3">
+        <nav class="navbar border" style="background-color: #F2F4F4; margin-bottom: 40px; margin-top: 10px; padding: 5px;">
+            <a class="navbar-brand fas fa-paperclip fa-lg">Attachment</a>
+        </nav>
+    </div> 
+</div>
+
+<div class="container-fluid text-center">
+    <div class="col">
+        <!-- Table with form row -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Contact Person Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Form row 1 -->
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-around mt-3">
+                            <label for="name" class="col-form-label ">Name :</label>
+                            <input type="string"
+                                id="name"
+                                placeholder="Enter Person Name"
+                                class="form-control input-small"
+                                [ngClass]="{'is-valid': name.valid && name.dirty, 'is-invalid': name.invalid && name.dirty}"
+                                #name="ngModel"
+                                required
+                                [(ngModel)]="nameValue">
+                            <div *ngIf="name.invalid && name.dirty" class="invalid-feedback">
+                                Name is required.
+                            </div>
+
+                            <label for="mobile" class="col-form-label ">Mobile :</label>
+                            <input type="text"
+                                id="mobile"
+                                placeholder="Enter Mobile No"
+                                class="form-control input-small"
+                                [ngClass]="{'is-valid': mobile.valid && mobile.dirty, 'is-invalid': mobile.invalid && mobile.dirty}"
+                                #mobile="ngModel"
+                                required
+                                [(ngModel)]="mobileValue">
+                                
+                            <label for="email" class="col-form-label me-4">Email :</label>
+                            <input type="email"
+                                id="email"
+                                placeholder="Enter Email"
+                                class="form-control input-small"
+                                [ngClass]="{'is-valid': email.valid && email.dirty, 'is-invalid': email.invalid && email.dirty}"
+                                #email="ngModel"
+                                [(ngModel)]="emailValue">
+                        </div>
+                        
+                        <div class="d-flex justify-content-around mt-5">
+                            <label for="department" class="col-form-label ">Department :</label>
+                            <input type="string"
+                                id="department"
+                                placeholder="Enter Department"
+                                class="form-control input-small"
+                                [ngClass]="{'is-valid': department.valid && department.dirty, 'is-invalid': department.invalid && department.dirty}"
+                                #department="ngModel"
+                                required
+                                [(ngModel)]="departmentValue">
+                            <div *ngIf="department.invalid && department.dirty" class="invalid-feedback">
+                                Department is required.
+                            </div>
+
+                            <label for="designation" class="col-form-label ">Designation :</label>
+                            <input type="text"
+                                id="designation"
+                                placeholder="Enter Designation"
+                                class="form-control input-small"
+                                [ngClass]="{'is-valid': designation.valid && designation.dirty, 'is-invalid': designation.invalid && designation.dirty}"
+                                #designation="ngModel"
+                                required
+                                [(ngModel)]="designationValue">
+                            <div *ngIf="department.invalid && department.dirty" class="invalid-feedback">
+                                Designation is required.
+                            </div>
+
+                            <div class="input-group-append btn btn-success">
+                                <button class="btn" type="button">
+                                    <i class="fas fa-plus fa-lg">    Add</i>
+                                </button>
+                            </div>
+                            <div class="input-group-append btn btn-danger">
+                                <button class="btn" type="button">
+                                    <i class="fas fa-times fa-lg">    Cancel</i>
+                                </button>
+                            </div>
+                        </div>
+                        <mat-grid-list cols="20" class="mt-5" rows="20">
+                            <mat-grid-tile
+                              *ngFor="let tile of tiles"
+                              [colspan]="tile.cols"
+                              [rowspan]="tile.rows"
+                              [style.background]="tile.color"
+                              class="border-grid-tile"> <!-- Add a custom class for styling -->
+                              <!-- Display filter icon and text for specific tile -->
+                              <ng-container *ngIf="tile.showFilterIcon">
+                                <div class="d-flex align-items-center">
+                                    <button class="btn me-2" type="button">
+                                        <i class="fas fa-filter fa-lg">Filter</i>
+                                    </button>
+                                </div>
+                              </ng-container>
+                              <!-- If not showing filter icon, display the original text -->
+                              <ng-container *ngIf="!tile.showFilterIcon">
+                                {{ tile.text }}
+                              </ng-container>
+                            </mat-grid-tile>
+                          </mat-grid-list>
+                    </td>
+                </tr>
+                
+                <!-- Add more rows as needed... -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col">
+            <div class="input-group-append btn btn-success me-2">
+                <button class="btn" type="button">
+                    <i class="fas fa-plus fa-lg">    Save</i>
+                </button>
+            </div>
+            <div class="input-group-append btn btn-danger">
+                <button class="btn"  type="button">
+                    <i class="fas fa-times fa-lg">    Cancel</i>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+

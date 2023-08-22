@@ -1,0 +1,141 @@
+<nav class="navbar border" style="background-color: #F2F4F4; margin-bottom: 40px;">
+  <div class="container-fluid">
+    <a class="navbar-brand">Bill To Party Master</a>
+    <form class="d-flex" role="search">
+      <div class="input-group rounded-0">
+        <span class="input-group-text bg-body">
+          <i class="fas fa-search"></i>
+        </span>
+        <input class="form-control me-2" type="search" placeholder="Search Data..." aria-label="Search">
+        <div class="input-group-append btn-outline-secondary">
+          <button class="btn border me-2 " type="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </button>
+          <button class="btn border me-2" type="button">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button class="btn border me-2" type="button">
+            <i class="fas fa-plus fa-lg"></i>
+          </button>
+          <button class="btn border me-2" type="button">
+            <i class="fas fa-times fa-lg"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<ngx-datatable class="material" [rows]="dataSource" columnMode="force" [scrollbarH]="true" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'">
+  <!-- Define columns using ngx-datatable-column -->
+  <ngx-datatable-column ...>
+    <ng-template ngx-datatable-header-template let-column="column">
+      <!-- Add filter input field -->
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Filter..."
+        (input)="updateFilter(column.name, $event)"
+      />
+    </ng-template>
+  </ngx-datatable-column>  
+  <!-- RowId Column -->
+  <ngx-datatable-column name="Row Id" prop="RowId">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.RowId }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Code Column -->
+  <ngx-datatable-column name="Code" prop="Code">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Code }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Name Column -->
+  <ngx-datatable-column name="Name" prop="Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Name }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Address Column -->
+  <ngx-datatable-column name="Address" prop="Address">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Address }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Country Column -->
+  <ngx-datatable-column name="Country" prop="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Country }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- State Column -->
+  <ngx-datatable-column name="State" prop="State">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.State }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- City Column -->
+  <ngx-datatable-column name="City" prop="City">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.City }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Mobile No. Column -->
+  <ngx-datatable-column name="Mobile No." prop="Mobile">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Mobile }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Email Column -->
+  <ngx-datatable-column name="Email" prop="Email">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Email }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- GST No. Column -->
+  <ngx-datatable-column name="GST No." prop="GSTNo">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.GSTNo }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- PAN No. Column -->
+  <ngx-datatable-column name="PAN No." prop="PANNo">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.PANNo }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Latitude Column -->
+  <ngx-datatable-column name="Latitude" prop="Latitude">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Latitude }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Longitude Column -->
+  <ngx-datatable-column name="Longitude" prop="Longitude">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.Longitude }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Contact Person Column -->
+  <ngx-datatable-column name="Contact Person" prop="ContactPersonDetails">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row.ContactPersonDetails }}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- Define ngx-datatable-column for other columns -->
+</ngx-datatable>
